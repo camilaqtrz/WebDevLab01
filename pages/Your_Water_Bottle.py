@@ -13,7 +13,7 @@ if "yeti" not in st.session_state:
 
 def headerSection():
     st.header("Which Water Bottle Are You?")
-    waterbottle_image = "Images/waterbottles.jpg"
+    waterbottle_image = "../Images/waterbottles.jpg"
     st.image(waterbottle_image, width = 400)
     about_quiz = "Answer the questions to find out which water bottle you are. Have fun!"
     st.write(about_quiz)
@@ -23,7 +23,7 @@ def headerSection():
 #First Question
 
 def firstQuest():
-    outdoor_image = "Images/nature.jpg"
+    outdoor_image = "../Images/nature.jpg"
     st.image(outdoor_image, width = 300)
     question = "Are you outdoors often?"
     choices = ["Yes, everyday!", "Often but not everyday", "Not really", "No"]
@@ -42,7 +42,7 @@ def firstQuest():
 # Second Question
 
 def secondQuest():
-    water_image = "Images/water.jpg"
+    water_image = "../Images/water.jpg"
     st.image(water_image, width = 300)
     st.write("About how much water do you drink in a day?")
     number = st.number_input(
@@ -62,7 +62,7 @@ def secondQuest():
 # Third Question
 
 def thirdQuest():
-    color_image = "Images/colors.jpg"
+    color_image = "../Images/colors.jpg"
     st.image(color_image, width = 300)
     st.write("What color brightness do you like more?")
     options = ["Light", "Dark", "Neutral", "Muted"]
@@ -82,7 +82,7 @@ def thirdQuest():
 #Fourth Question
 
 def fourthQuest():
-    scale_image = "Images/scale.jpg"
+    scale_image = "../Images/scale.jpg"
     st.image(scale_image, width = 300)
     rate = st.slider("Rate water on a scale from 1 to 10!", 0, 10, 0, key = "questFour")#NEW
     if rate > 8:
@@ -97,7 +97,7 @@ def fourthQuest():
 #Fifth Question
 
 def fifthQuest():
-    sea_image = "Images/seacreatures.jpg"
+    sea_image = "../Images/seacreatures.jpg"
     st.image(sea_image, width = 400)
     seaQuestion = "Lastly, choose a sea creature!"
     creature = ["Blue Whale", "Seahorse", "Sea Turtle", "Octopus"]
@@ -128,27 +128,27 @@ def waterbottle():
     if st.button("Find out which water bottle you are!"):
         if st.session_state.nalgene > st.session_state.owala and st.session_state.nalgene > st.session_state.stanley and st.session_state.nalgene > st.session_state.yeti:
             st.subheader("You are a Nalgene waterbottle!")
-            nalgene_image = "Images/nalgene.jpg"
+            nalgene_image = "../Images/nalgene.jpg"
             st.image(nalgene_image, width = 400)
             st.write("Always ready for an adventure and your dreams are limitless!")
         elif st.session_state.owala > st.session_state.nalgene and st.session_state.owala > st.session_state.stanley and st.session_state.owala > st.session_state.yeti:
             st.subheader("You are an Owala waterbottle!")
-            owala_image = "Images/owala.jpg"
+            owala_image = "../Images/owala.jpg"
             st.image(owala_image, width = 400)
             st.write("Reliable and ready to be productive!")
         elif st.session_state.yeti > st.session_state.nalgene and st.session_state.yeti > st.session_state.stanley and st.session_state.yeti > st.session_state.owala:
             st.subheader("You are an Yeti waterbottle!")
-            yeti_image = "Images/yeti.webp"
+            yeti_image = "../Images/yeti.webp"
             st.image(yeti_image, width = 400)
             st.write("Tough and rough on the outside and always ready for anything!")
         elif st.session_state.stanley > st.session_state.nalgene and st.session_state.stanley > st.session_state.yeti and st.session_state.stanley > st.session_state.owala:
             st.subheader("You are an Stanley waterbottle!")
-            stanley_image = "Images/stanley.jpg"
+            stanley_image = "../Images/stanley.jpeg"
             st.image(stanley_image, width = 400)
             st.write("Visionary and not afraid to try anything!")
         else:
             st.subheader("You are a hydroflask!")
-            hydro_image = "Images/hydroflask.jpg"
+            hydro_image = "../Images/hydroflask.jpg"
             st.image(hydro_image, width = 400)
             st.write("Nostalgia hits you with a wave of emotions, leaving you longing for the past...")
         st.balloons()
