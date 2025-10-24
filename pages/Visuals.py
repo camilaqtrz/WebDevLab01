@@ -32,7 +32,7 @@ st.header("Load Data")
 
 try:
     if os.path.exists("data.csv") and os.path.getsize("data.csv") > 0:
-        allData = pd.read_csv("data.csv")
+        allData = pd.read_csv("data.csv", names = ["Category", "Value"], header = None)
         st.info(f"Successfully loaded {len(allData)} data from data.csv")
     else:
         raise FileNotFoundError("data.csv does not exist or is empty.")
