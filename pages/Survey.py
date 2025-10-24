@@ -45,23 +45,22 @@ with st.form(key = "survey_form", clear_on_submit=True):
         # --- YOUR LOGIC GOES HERE ---
         # TO DO:
         # 1. Create a new row of data from 'category_input' and 'value_input'.
-        newData = pd.DataFrame({"Category": [category_input], "Value": [value_input]})
-        csvFile = "data.csv"
-        # 2. Append this new row to the 'data.csv' file.
-        if os.path.exists(csvFile) and os.path.getsize(csvFile) > 0:
-            existingData = pd.read_csv(csvFile)
-            if category_input in existingData["Category"].values:
-                existingData.loc[existingData["Category"] == category_input, "Value"] = value_input
-                updatedData = existingData
-                update_type = "updated"
-            else:
-                updatedData = pd.concat([existingData, newData], ignore_index = True)
-        else:
-            updatedData = newData
-            
-        updatedData.to_csv(csvFile, index = False)
-        st.success("Your data has been submitted!")
+        categoryInput = st.session_state["dayRadio"]
+        valueInput = st.session_state["Amount of Water"]
+
+        newRow = f"{categoryInput}, {valueInput}\n
+        csv_file = "data.csv"
+
+        try:
+            with open(csv_file, "a") as k:
+                k.write(newRow)
+            st.success("Your data has been submitted!")
+        except Exception:
+            st.error(f"An error occurred: {Exception}")
         
+        #    - You can use pandas or Python's built-in 'csv' module.
+        #    - Make sure to open the file in 'append' mode ('a').
+        #    - Don't forget to add a newline character '\n' at the end.
         
         st.write(f"You entered: **Category:** {category_input}, **Value:** {value_input}")
         st.write("After you input all your values, look to the sidebar on the left. Go to the Visualization page to see the graphs!")
