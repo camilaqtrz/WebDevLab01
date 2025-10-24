@@ -63,10 +63,6 @@ with st.form(key = "survey_form", clear_on_submit=True):
         st.success("Your data has been submitted!")
         
         
-        #    - You can use pandas or Python's built-in 'csv' module.
-        #    - Make sure to open the file in 'append' mode ('a').
-        #    - Don't forget to add a newline character '\n' at the end.
-        
         st.write(f"You entered: **Category:** {category_input}, **Value:** {value_input}")
         st.write("After you input all your values, look to the sidebar on the left. Go to the Visualization page to see the graphs!")
 
