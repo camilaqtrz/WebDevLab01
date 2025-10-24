@@ -51,7 +51,7 @@ try:
     else:
         raise FileNotFoundError("data.json does not exist or is empty.")
 except FileNotFoundError:
-    st.error(f"Error: {FilleNotFound} JSON data will be empty.")
+    st.error(f"Error: {FileNotFound} JSON data will be empty.")
     allJsonData = pd.DataFrame({"Label": [], "Value": []})
 
 # GRAPH CREATION
