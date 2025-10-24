@@ -48,7 +48,7 @@ with st.form(key = "survey_form", clear_on_submit=True):
         categoryInput = st.session_state["dayRadio"]
         valueInput = st.session_state["Amount of Water"]
 
-        newRow = f"{categoryInput}, {valueInput}\n
+        newRow = f"{categoryInput}, {valueInput}\n"
         csv_file = "data.csv"
 
         try:
